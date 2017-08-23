@@ -1,0 +1,37 @@
+type User implements Node {
+  createdAt: DateTime!
+  id: ID! @isUnique
+  updatedAt: DateTime!
+  isActivated: Boolean! @defaultValue(value: false)
+  facebookUserId: String @isUnique
+  name: String!
+  comments: [Comment!]! @relation(name: "CommentAuthor")
+  posts: [Post!]! @relation(name: "PostAuthor")
+  friends: [User!]! @relation(name: "Friends")
+  role: UserRole!
+}
+
+type Post implements Node {
+  id: ID! @isUnique
+  title: String!
+  slug: String
+  comments: [Comment!]! @relation(name: "PostComments")
+  author: User @relation(name: "PostAuthor")
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Comment implements Node {
+  id: ID! @isUnique
+  text: String!
+  post: Post! @relation(name: "PostComments")
+  author: User @relation(name: "CommentAuthor")
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+enum UserRole {
+  NORMAL,
+  MODERATOR,
+  ADMINISTRATOR
+}

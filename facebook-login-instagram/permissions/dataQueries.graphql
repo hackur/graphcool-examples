@@ -1,0 +1,120 @@
+query UserIsActivated($nodeId: ID!) {
+  SomeUserExists(filter: {
+     id: $nodeId
+     isActivated: true
+   })
+ }
+
+query CommentAuthorIsActivatedAndFriendOfPostAuthor($nodeId: ID!, $userId: ID!, $input_postId: ID!, $input_authorId: ID!) {
+  # user is activated, and sets herself as comment author
+  SomeCommentExists(filter: {
+    id: $nodeId
+    author: {
+      AND: [{
+        id: $userId
+      }, {
+        id: $input_authorId
+      }, {
+        isActivated: true
+      }]
+    }
+  })
+
+  # user is friends with post author
+  SomePostExists(filter: {
+    id: $input_postId
+    author: {
+      friends_some: {
+        id: $userId
+      }
+    }
+  })
+}
+
+query wasCreatedByUser($nodeId: ID!, $userId: ID!) {
+  SomeUserExists(filter: {
+    id: $userId
+    OR: [{
+      comments_some: {
+        id: $nodeId
+      }
+    }, {
+      posts_some: {
+        id: $nodeId
+      }
+    }]
+  })
+}
+
+query isSameUser($nodeId: ID!, $userId: ID!) {
+  SomeUserExists(filter: {
+    AND: [{
+      id: $userId
+    }, {
+      id: $nodeId
+    }]
+  })
+}
+
+query connectPostToSelf($user_id: ID!, $postsPost_id: ID!, $authorUser_id: ID!) {
+  # user is setting author to herself
+  SomeUserExists(filter: {
+    AND: [{
+      id: $userId
+    }, {
+      id: $authorUser_id
+    }]
+  })
+
+  # post is not yet connected to a different author
+  SomePostExists(filter: {
+    id: $postsPost_id
+    author: null
+  })
+}
+
+query connectCommentToSelf($user_id: ID!, $commentsComment_id: ID!, $authorUser_id: ID!) {
+  # user is setting author to herself
+  SomeUserExists(filter: {
+    AND: [{
+      id: $userId
+    }, {
+      id: $authorUser_id
+    }]
+  })
+
+  # comment is not yet connected to a different author
+  SomeCommentExists(filter: {
+    id: $commentsComment_id
+    author: null
+  })
+}
+
+query connectCommentToPost($user_id: ID!, $commentsComment_id: ID!, $postPost_id: ID!) {
+  # user is author of comment, and comment is not connected to a post yet
+  SomeCommentExists(filter: {
+    author: {
+      id: $user_id
+    }
+    post: null
+  })
+}
+
+query connectFriends($user_id: ID!, $friends1User_id: ID!, $friends2User_id: ID!) {
+  # user is one of the two friends
+  SomeUserExists(filter: {
+    OR: [{
+      AND:[{
+        id: $user_id
+      }, {
+        id: $friends1User_id
+      }]
+    }, {
+      AND:[{
+        id: $user_id
+      }, {
+        id: $friends2User_id
+      }]
+    }]
+  })
+}
