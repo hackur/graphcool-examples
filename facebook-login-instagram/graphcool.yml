@@ -54,14 +54,17 @@ permissions:
   authenticated: true
   query: permissions/dataQueries.graphql:connectPostToSelf
 
+# user can connect new comments to herself
 - operation: CommentAuthor.connect
   authenticated: true
   query: permissions/dataQueries.graphql:connectCommentToSelf
 
+# user can connect her own, new comments to posts
 - operation: PostComments.connect
   authenticated: true
   query: permissions/dataQueries.graphql:connectCommentToPost
 
+# user can befriend another user
 - operation: Friends.connect
   authenticated: true
   query: permissions/dataQueries.graphql:connectFriends
