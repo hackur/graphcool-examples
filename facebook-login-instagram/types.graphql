@@ -1,4 +1,4 @@
-type User implements Node {
+type User implements Node @model {
   createdAt: DateTime!
   id: ID! @isUnique
   updatedAt: DateTime!
@@ -11,7 +11,7 @@ type User implements Node {
   role: UserRole!
 }
 
-type Post implements Node {
+type Post implements Node @model {
   id: ID! @isUnique
   title: String!
   slug: String
@@ -21,7 +21,7 @@ type Post implements Node {
   updatedAt: DateTime!
 }
 
-type Comment implements Node {
+type Comment implements Node @model {
   id: ID! @isUnique
   text: String!
   post: Post! @relation(name: "PostComments")
