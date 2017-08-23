@@ -1,0 +1,75 @@
+# questions:
+# * inline vs file vs js export
+# * zeit/serverless fn deployment
+# * allow operation-unification?
+#
+# todo:
+# * schema unification for permissions
+
+types: ./types.graphql
+
+rootTokens:
+  - crm
+  - someOther
+
+permissions:
+
+  # all users can do everything
+  - operation: User.create
+    authenticated: true
+    query: someQuery.graphql
+    fields: [id, someOther]
+
+  - operation: User.delete
+  - operation: Post.*
+
+functions:
+
+  # this is a user signup
+  userSignup:
+    isEnabled: true
+    handler:
+      webhook:
+        url: http://
+        headers:
+          Content-Type: application/json
+    type: httpRequest
+    # type: httpResponse
+
+  userSignup2:
+    handler:
+      webhook: http://
+    type:
+      operationBefore: User.create
+      # operationAfter: UserComments.disconnect
+
+  userSignup3:
+    handler:
+      webhook: http://
+    type:
+      subscription: |
+        subscription {
+          Post {
+            node {
+              title
+            }
+          }
+        }
+
+  userSignup4:
+    handler:
+      webhook: http://
+    type:
+      subscription: some-subscription.graphql
+
+  userSignup5:
+    handler:
+      webhook: http://
+    type:
+      schemaExtension: my-extension.graphql
+
+  userSignup6:
+    handler:
+      webhook: http://
+    type:
+      schemaExtension: allThemQueries.graphql
