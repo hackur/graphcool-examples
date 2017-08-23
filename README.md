@@ -12,6 +12,7 @@ Please check out the available example or try to create your own one. This shoul
 - [ ] Naming for project definition file and environment files (Current: `graphcool.yml` & `.graphcool.env`)
 - [ ] Default folder structure (functions, permissions, ...)
 - [ ] Variable interpolation syntax (based on [Serverless's syntax](https://serverless.com/framework/docs/providers/aws/guide/variables/))
+- [ ] Permission queries: `$authenticatedId: ID!` vs. `$userId: ID!`
 
 ## Development
 
