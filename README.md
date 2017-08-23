@@ -15,6 +15,7 @@ Please check out the available example or try to create your own one. This shoul
 - [ ] Permission queries: `$authenticatedId: ID!` vs. `$userId: ID!`
 - [ ] support a list of permission queries per permission (combined with AND)? would decrease verbosity and increase composibility, but difficult to validate/map variables
 - [ ] Should function type with extra configuration be nested or on the top level? If nested, `type: httpRequest` would be a string and `type: serversideSubscription` a map.
+- [ ] is there ever a `@model` type that is not a `Node`, or the other way around?
 
 ## Development
 
