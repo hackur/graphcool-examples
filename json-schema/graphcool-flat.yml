@@ -8,13 +8,17 @@ rootTokens:
 
 permissions:
 
-  # all users can do everything
+  # user must be authenticated and someQuery.graphql must return true so User.create 
+  # can be performed (restriced to field `someOther` during creation)
   - operation: User.create
     authenticated: true
     query: someQuery.graphql
     fields: [id, someOther]
 
+  # everyone can delete User nodes
   - operation: User.delete
+  
+  # everyone can perform all operations on Post nodes
   - operation: Post.*
 
 functions:
