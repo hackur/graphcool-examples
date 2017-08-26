@@ -1,0 +1,72 @@
+# this is a modification based on Marcus' suggestion to flatten the function properties
+
+types: ./types.graphql
+
+rootTokens:
+  - crm
+  - someOther
+
+permissions:
+
+  # all users can do everything
+  - operation: User.create
+    authenticated: true
+    query: someQuery.graphql
+    fields: [id, someOther]
+
+  - operation: User.delete
+  - operation: Post.*
+
+functions:
+
+  # this is a user signup
+  fnHttpRequest:
+    isEnabled: true
+    handler:
+      webhook:
+        url: http://
+        headers:
+          Content-Type: application/json
+    type: http.request
+    # type: httpResponse
+    
+  fnHttpResponse:
+    handler: myfn.js
+    type: http.response
+
+  fnOperationBefore:
+    handler:
+      webhook: http://
+    type: operation.before
+    operation: User.create
+
+  fnOperationAfter:
+    handler:
+      webhook: http://
+    type: operation.after
+    operation: UserComments.disconnect
+
+  fnSubscriptionInline:
+    handler:
+      webhook: http://
+    type: subscription
+    query: |
+      subscription {
+        Post {
+          node {
+            title
+          }
+        }
+      }
+
+  fnSubscriptionFile:
+    handler:
+      webhook: http://
+    type: subscription
+    query: some-subscription.graphql
+
+  fnSchemaExtension:
+    handler:
+      webhook: http://
+    type: schemaExtension
+    schema: my-extension.graphql
