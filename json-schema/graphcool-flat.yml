@@ -31,7 +31,7 @@ functions:
         url: http://
         headers:
           Content-Type: application/json
-    type: http.request
+    type: httpRequest
     # type: httpResponse
     
   fnHttpResponse:
@@ -41,13 +41,13 @@ functions:
   fnOperationBefore:
     handler:
       webhook: http://
-    type: operation.before
+    type: operationBefore
     operation: User.create
 
   fnOperationAfter:
     handler:
       webhook: http://
-    type: operation.after
+    type: operationAfter
     operation: UserComments.disconnect
 
   fnSubscriptionInline:
