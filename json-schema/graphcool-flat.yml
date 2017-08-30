@@ -35,7 +35,9 @@ functions:
     # type: httpResponse
     
   fnHttpResponse:
-    handler: myfn.js
+    handler: 
+      code:
+        src: myfn.js
     type: httpResponse
 
   fnOperationBefore:
