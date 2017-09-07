@@ -1,0 +1,5 @@
+default: dev
+environments:
+  dev:
+    projectId: PROJECT_ID
+    version: 1
