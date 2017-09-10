@@ -1,3 +1,4 @@
 type ModuleType {
-  name: Strin!
+  id: ID!
+  name: String!
 }

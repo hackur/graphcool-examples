@@ -1,0 +1,15 @@
+types: ./types.graphql
+
+functions:
+  syncModel:
+    handler:
+      code:
+        src: ./code/sync.js
+    type: subscription
+    query: ./code/syncQuery.graphql
+
+permissions:
+- operation: SyncModel.read
+- operation: SyncModel.create
+- operation: SyncModel.update
+- operation: SyncModel.delete

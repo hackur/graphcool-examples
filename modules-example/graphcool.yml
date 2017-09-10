@@ -33,3 +33,4 @@ rootTokens: []
 
 modules:
   myModule: ./modules/myModule/graphcool.yml
+  algolia: ./modules/algolia/graphcool.yml
