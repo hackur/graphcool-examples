@@ -1,0 +1,30 @@
+# GraphQL types
+types: ./types.graphql
+
+# functions
+functions:
+  checkAvailability:
+    handler:
+      code:
+        src: ./code/checkAvailability.js
+    type: operationBefore
+    operation: Order.create
+  
+  payForBasket:
+    handler:
+      code:
+        src: ./code/payForBasket.js
+    type: resolver
+    schema: ./schemas/payForBasket.graphql
+ 
+# Graphcool modules
+modules: {}
+
+# Model/Relation permissions
+permissions: 
+  - operation: Basket.create
+  - operation: Item.create
+  - operation: Order.read
+  
+# Permanent Auth Token / Root Tokens
+rootTokens: []

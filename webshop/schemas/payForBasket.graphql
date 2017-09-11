@@ -1,0 +1,7 @@
+type PaymentPayload {
+  total: Int!
+}
+
+extend type Mutation {
+  pay(stripeToken: String!, basketId: String!): PaymentPayload
+}
