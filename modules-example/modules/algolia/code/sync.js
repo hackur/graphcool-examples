@@ -5,6 +5,10 @@ const algoliasearch = require('algoliasearch');
 // var index = client.initIndex('yourIndexName');
 // const modelName = 'yourModelName'
 
+const client = algoliasearch('EDLHXWDRS1', 'ff97501c6ff2f2966656e67d43ae4d87');
+const index = client.initIndex('your_index_name');
+const modelName = 'Post'
+
 module.exports = function (event) {
   
   const mutation = event.data[modelName].mutation
@@ -36,5 +40,5 @@ function syncUpdatedNode(node) {
 
 function syncDeletedNode(node) {
   console.log('Deleting node')
-  return index.deleteObject(node.objectId)
+  return index.deleteObject(node.objectID)
 }
