@@ -13,6 +13,7 @@ type Basket implements Node {
   updatedAt: DateTime!
   items: [Item!]! @relation(name: "BasketOnItem")
   order: Order @relation(name: "BasketOrder")
+  email: String!
 }
 
 type Order implements Node {

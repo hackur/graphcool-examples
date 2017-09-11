@@ -1,0 +1,19 @@
+subscription {
+  Order(filter: {
+    node: {
+      paymentCompleted: true
+    }
+    mutation_in: [UPDATED]
+  }) {
+    node {
+      id
+      basket {
+        email
+        items {
+          name
+          price
+        }
+      }
+    }
+  }
+}

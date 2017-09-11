@@ -16,6 +16,13 @@ functions:
         src: ./code/payForBasket.js
     type: resolver
     schema: ./schemas/payForBasket.graphql
+  
+  sendInvoice:
+    handler:
+      code:
+        src: ./code/sendInvoice.js
+    type: subscription
+    query: ./subscriptions/sendInvoice.graphql
  
 # Graphcool modules
 modules: {}
