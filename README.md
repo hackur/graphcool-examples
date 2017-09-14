@@ -5,7 +5,7 @@ Collection of Graphcool example projects 💡
 ## Examples
 - `Graphcool + Github Login = Instagram for Nerds` :neckbeard: in `/cli-demo`
 - `Graphcool + Email/Password Login = Instagram for Everyone` :family: in `/email-password-login-instagram`
-- Stripe + Graphcool = Webshop :iPhone: in `/webshop`
+- Stripe + Graphcool = Webshop :iphone: in `/webshop`
 
 ## Getting Started
 
