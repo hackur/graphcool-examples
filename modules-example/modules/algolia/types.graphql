@@ -1,5 +1,0 @@
-type SyncModel {
-  id: ID!
-  name: String!
-  points: Int
-}

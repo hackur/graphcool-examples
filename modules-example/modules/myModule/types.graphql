@@ -1,4 +1,0 @@
-type ModuleType {
-  id: ID!
-  name: String!
-}

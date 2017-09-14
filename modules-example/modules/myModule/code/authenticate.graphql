@@ -1,7 +1,0 @@
-type AuthenticationPayload {
-  token: String!
-}
-
-extend type Mutation {
-  authenticateAnonymousCustomer(secret: String!, name: String): AuthenticationPayload
-}
