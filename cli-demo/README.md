@@ -153,7 +153,7 @@ graphcool deploy
 ```sh
 cd modules/github/
 python -m SimpleHTTPServer
-open localhost:8000/index.html
+open localhost:8000/login.html
 # authenticate with Github and find your code in the DevTools of your browser
 ```
 
