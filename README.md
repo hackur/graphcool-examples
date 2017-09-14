@@ -1,6 +1,6 @@
 # graphcool-examples
 
-Graphcool example projects 💡
+Collection of Graphcool example projects 💡
 
 ## Getting Started
 
