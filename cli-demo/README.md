@@ -146,7 +146,7 @@ export CLIENT_SECRET=
 graphcool deploy
 ```
 
-- replace `__CLIENT_ID__` in `vim modules/github/index.html` with the client id of your OAuth app to create a Github code for testing the function
+- replace `__CLIENT_ID__` in `modules/github/login.html` with the client id of your OAuth app to create a Github code for testing the function
 
 - generate a new test token:
 
