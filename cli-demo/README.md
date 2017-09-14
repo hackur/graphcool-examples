@@ -6,7 +6,7 @@ Provided is a final version of the Graphcool project, including detailed step-by
 
 # Overview
 
-For a quick introduction, [watch the video first](https://www.youtube.com/watch?v=gg_SJ8a5xpA).
+For a quick introduction to the CLI, [watch the video first](https://www.youtube.com/watch?v=gg_SJ8a5xpA).
 
 ## Getting Started
 
