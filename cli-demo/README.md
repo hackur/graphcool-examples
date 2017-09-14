@@ -1,6 +1,6 @@
 # cli-demo
 
-This examples helps you to get familiar with the [Graphcool CLI](https://github.com/graphcool/graphcool-cli).
+This example helps you to get familiar with the [Graphcool CLI](https://github.com/graphcool/graphcool-cli).
 
 Provided is a final version of the Graphcool project, including detailed step-by-step instructions to build it yourself!
 
