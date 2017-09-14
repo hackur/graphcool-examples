@@ -133,7 +133,7 @@ type Post {
 }
 ```
 
-- follow the instructions in the `github` module to create a new OAuth app at Github and configure your environment with the needed environment variables in `.envrc`:
+- follow the instructions in the `github` module to create a new OAuth app at Github and configure your environment with the needed environment variables, for example by creating an `.envrc` file that you use with [direnv](https://direnv.net/):
 
 ```
 export CLIENT_ID=
