@@ -72,7 +72,7 @@ graphcool playground
 If you want to see when the functions of the project are invoked and what their input and output is, check the function logs for any of the three functions that are configured for the project:
 
 ```sh
-graphcool logs -f authenticate # or signup or authenticatedEmailUser
+graphcool logs -f authenticate
 # or: graphcool logs -f signup
 # or: graphcool logs -f authenticatedEmailUser
 ```
