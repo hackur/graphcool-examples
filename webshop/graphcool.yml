@@ -1,0 +1,47 @@
+# Welcome to Graphcool!
+#
+# This file is the main config file for your Graphcool Project.
+# It's very minimal at this point and uses default values.
+# We've included a hello world function here.
+# Just uncomment it an run `graphcool deploy`
+#
+# For full config options, check the docs:
+#    graph.cool/docs
+#
+# Happy Coding!
+
+
+# GraphQL types
+types: ./types.graphql
+
+
+# uncomment this:
+
+functions:
+  pay:
+    handler:
+      code:
+        src: ./code/pay.js
+        environment:
+          STRIPE_KEY: ${env:STRIPE_KEY}
+    type: resolver
+    schema: ./code/pay.graphql
+
+ 
+# Graphcool modules
+modules: {}
+
+
+# Model/Relation permissions
+permissions:
+  - operation: "*"
+  - operation: "Baskets.*"
+  - operation: "Orders.*"
+  - operation: "BasketOnItem.*"
+  - operation: "BasketOnOrder.*"
+
+  
+# Permanent Auth Token / Root Tokens
+rootTokens:
+  - defaultToken
+
