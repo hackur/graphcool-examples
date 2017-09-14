@@ -32,18 +32,18 @@ For a quick introduction, [watch the video first](https://www.youtube.com/watch?
 # Instructions
 
 ## Getting Started
-- install the CLI:
+- install the CLI
 
 ```sh
 npm install -g graphcool@beta
 ```
 
-- initialize a new project:
+- initialize a new project
 ```sh
 graphcool init # choose blank project when prompted
 ```
 
-- open `graphcool.yml` and get familiar with the project structure:
+- open `graphcool.yml` and get familiar with the project structure
 
   - `types`: type definitions, including model types (reflected in DB and API) and more types
   - `modules`: used to structure your code in logical components
@@ -51,7 +51,7 @@ graphcool init # choose blank project when prompted
   - `permissions`: control Authorization for your project
   - `rootTokens`: used by functions and scripts to get full API access
 
-- open types.graphql and add `Post` type:
+- open types.graphql and add `Post` type
 
 ```graphql
 type Post {
@@ -63,13 +63,13 @@ type Post {
 }
 ```
 
-- deploy changes:
+- deploy changes
 
 ```sh
 graphcool deploy
 ```
 
-- explore basic API for `Post` type:
+- explore basic API for `Post` type
 
 ```sh
 graphcool playground
@@ -99,10 +99,17 @@ mutation {
 ```
 
 ## Github Authentication Module
-- add a new module:
+- download the github module
 
 ```sh
 graphcool module add graphcool/modules/authentication/github
+```
+
+- add the module to your `graphcool.yml` file
+
+```yml
+modules:
+  github: modules/github/graphcool.yml
 ```
 
 - create a relation `AuthorPosts` between the new type `GithubUser` in `modules/github/types.graphql` and `Post` in `types.graphql`
@@ -133,14 +140,14 @@ type Post {
 }
 ```
 
-- follow the instructions in the `github` module to create a new OAuth app at Github and configure your environment with the needed environment variables, for example by creating an `.envrc` file that you use with [direnv](https://direnv.net/):
+- follow the instructions in the `github` module to create a new OAuth app at Github and configure your environment with the needed environment variables, for example by creating an `.envrc` file that you use with [direnv](https://direnv.net/)
 
 ```
 export CLIENT_ID=
 export CLIENT_SECRET=
 ```
 
-- deploy the changes, including a new type, relation and function:
+- deploy the changes, including a new type, relation and function
 
 ```sh
 graphcool deploy
@@ -159,7 +166,7 @@ open localhost:8000/login.html
 
 - Note that the token only works once! You can authenticate again to obtain a new token.
 
-- use Github code to create a new user in Graphcool and obtain a Graphcool token:
+- use Github code to create a new user in Graphcool and obtain a Graphcool token
 
 ```sh
 graphcool playground
@@ -173,7 +180,7 @@ mutation {
 }
 ```
 
-- query the new user:
+- query the new user
 
 ```graphql
 query {
@@ -188,7 +195,7 @@ query {
 - copy the id of the GithubUser node for the following steps!
 
 ## API
-- explore the API further, for example with a nested mutation:
+- explore the API further, for example with a nested mutation
 
 ```graphql
 # this creates a new post and connects it to the user via the `AuthorPosts` relation
@@ -205,7 +212,7 @@ mutation {
 ```
 
 ## Business Logic
-- add a new type `Like` with a relation to `Post` and `GithubUser` each:
+- add a new type `Like` with a relation to `Post` and `GithubUser` each
 
 ```graphql
 # in types.graphql
@@ -235,19 +242,19 @@ type GithubUser {
 
 - add a new subscription function (including a complementary root token), that creates a new like whenever a user creates a new posts. You can check the final `graphcool.yml` file to see which changes need to be done.
 
-- deploy the changes:
+- deploy the changes
 
 ```sh
 graphcool deploy
 ```
 
-- hook into the function logs:
+- hook into the function logs
 
 ```sh
 graphcool logs -f like --tail
 ```
 
-- test the new function by creating a new post:
+- test the new function by creating a new post
 
 ```sh
 graphcool playground
