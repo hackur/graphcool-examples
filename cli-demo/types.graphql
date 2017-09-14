@@ -1,0 +1,33 @@
+# This file contains the GraphQL Types
+# Graphcool has one special type, the File type:
+
+# type File implements Node {
+#   contentType: String!
+#   createdAt: DateTime!
+#   id: ID! @isUnique
+#   name: String!
+#   secret: String! @isUnique
+#   size: Int!
+#   updatedAt: DateTime!
+#   url: String! @isUnique
+# }
+
+# All types need to have an id field defined like this:
+
+type Post {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  description: String!
+  imageUrl: String!
+  author: GithubUser @relation(name: "AuthorPosts")
+  likes: [Like!]! @relation(name: "LikeOnPost")
+}
+
+type Like {
+  id: ID! @isUnique
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  post: Post @relation(name: "LikeOnPost")
+  likedBy: GithubUser @relation(name: "LikeOnGithubUser")
+}
