@@ -17,5 +17,11 @@ permissions:
     authenticated: true
   - operation: UsersPosts.*
     authenticated: true
+  - operation: Post.update
+    authenticated: true
+    query: ./permissions/updatePost.graphql
+  - operation: Post.delete
+    authenticated: true
+    query: ./permissions/deletePost.graphql
 
 rootTokens: []
