@@ -1,15 +1,23 @@
-# Graphcool Webshop
+# Graphcool Webshop :moneybag:
 
-## Getting Started
-
-```
-graphcool init
-```
+## What it includes
+- Stripe Checkout Flow
+- GraphQL type definitions
+- A custom GraphQL `resolver` function, hosted in Graphcool
 
 ## Config
 This example needs an environment variable called `STRIPE_KEY`.
 The `STRIPE_KEY` can be obtained by [creating a stripe account](https://dashboard.stripe.com/register)
 and getting the token from the Account Settings.
+
+## Getting Started
+
+```sh
+$ npm install -g graphcool@beta
+$ git clone git@github.com:graphcool-examples/graphcool-examples.git
+$ cd graphcool-examples/webshop
+$ graphcool init
+```
 
 ## Data Setup
 
@@ -58,3 +66,14 @@ mutation pay {
   }
 }
  ```
+
+## Local Development
+To run the `pay.js` function locally, you can use the `scripts/run.js` file to run it.
+
+## IDE Support
+The `graphql.config.json` file points to an endpoint hosting the Graphcool definition schema, which enables schema validation
+on your GraphQL types definitions.
+
+## Coming Soon
+- Custom Permissions
+- Schema Stitching
