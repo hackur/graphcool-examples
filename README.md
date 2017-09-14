@@ -33,6 +33,8 @@ graphcool deploy
 
 will deploy the local configuration to the default environment and list all applied changes.
 
+![](./deploy.png)
+
 ### Modules 🎁
 
 Modules are a simple way to structure your configuration in logically separate units. You can add a module from a Github repository like this:
