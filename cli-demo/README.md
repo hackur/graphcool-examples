@@ -194,7 +194,7 @@ query {
 }
 ```
 
-- copy the id of the GithubUser node for the following steps!
+- copy the resulting `id` of the GithubUser for the following steps!
 
 ## API
 - explore the API further, for example with a nested mutation
@@ -242,7 +242,20 @@ type GithubUser {
 }
 ```
 
-- add a new subscription function (including a complementary root token), that creates a new like whenever a user creates a new posts. You can check the final `graphcool.yml` file to see which changes need to be done.
+- add a new subscription function by replacing `functions: {}` with the following in the `graphcool.yml` file:
+
+```yml
+# functions
+functions:
+  like:
+    handler:
+      code:
+        src: ./code/like.js
+    type: subscription
+    query: ./schemas/like.graphql
+```
+
+- copy the code from `code/like.js` and `code/like.graphql` in this repository in your own project
 
 - deploy the changes
 
