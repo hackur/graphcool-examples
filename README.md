@@ -11,7 +11,7 @@ Collection of Graphcool example projects 💡
 
 **Watch the video to get started:** https://www.youtube.com/watch?v=gg_SJ8a5xpA
 
-[![](./thumbnail.png)](https://www.youtube.com/watch?v=gg_SJ8a5xpA)
+[![](./preview.png)](https://www.youtube.com/watch?v=gg_SJ8a5xpA)
 
 **Install the CLI and initialize an example project**
 
