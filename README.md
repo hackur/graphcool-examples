@@ -9,10 +9,16 @@ Collection of Graphcool example projects 💡
 
 ## Getting Started
 
+**Watch the video to get started:** https://www.youtube.com/watch?v=gg_SJ8a5xpA
+
 [![](./thumbnail.png)](https://www.youtube.com/watch?v=gg_SJ8a5xpA)
+
+**Install the CLI and initialize an example project**
 
 ```sh
 npm install -g graphcool@beta
+git clone git@github.com:graphcool-examples/graphcool-examples.git
+cd email-password-login-example
 graphcool init
 ```
 
