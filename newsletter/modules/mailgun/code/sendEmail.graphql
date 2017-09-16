@@ -1,13 +1,13 @@
 subscription {
-  SendgridEmail(filter: {
+  MailgunEmail(filter: {
     mutation_in: [CREATED]
   }) {
     node {
       id
-      fromEmail
-      toEmail
+      from
+      to
       subject
-      content
+      text
     }
   }
 }

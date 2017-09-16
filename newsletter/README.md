@@ -11,15 +11,11 @@ graphcool init
 
 ## Configuration
 
-You need to setup the following environment variables:
+* Check the README for the `mailgun` module in `modules/mailgun/README.md` to setup mailgun.
 
-* `SENDGRID_API_KEY`: Sendgrid API Key
-* `SENDER_EMAIL`: Sender email for newsletter
-
-Setup an account and API Key for [Sendgrid](https://sendgrid.com/). An easy way to set up the environment variables is using [direnv](https://direnv.net/). To use `direnv`, create the following into `.envrc`, replacing `xxx` with your API Key and sender email.
+* Add the `SENDER_EMAIL` environment variable. In the sandbox mode of mailgun, it needs to be the same as the email address you used to signed up to mailgun.
 
 ```
-export SENDGRID_API_KEY=xxx
 export SENDER_EMAIL=xxx
 ```
 
@@ -48,7 +44,7 @@ Run this mutation to create a new subscriber:
 
 ```graphql
 mutation {
-  # replace __EMAIL__ with your email!
+  # replace __EMAIL__ with the value of SENDER_EMAIL from above!
   createSubscriber(
     email: "__EMAIL__"
     firstName: "John"
@@ -61,3 +57,5 @@ mutation {
 ```
 
 A new welcome email should have been sent to the email you provided.
+
+**Note that in the sandbox mode of mailgun, you can only send emails to and from the email you signed up.**

@@ -14,7 +14,7 @@ functions:
 
 # Graphcool modules
 modules:
-  sendgrid: modules/sendgrid/graphcool.yml
+  mailgun: modules/mailgun/graphcool.yml
 
 # Model/Relation permissions
 permissions: []

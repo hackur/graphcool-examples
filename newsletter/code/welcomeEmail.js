@@ -11,7 +11,7 @@ module.exports = function(event) {
   const graphcool = fromEvent(event)
   const api = graphcool.api('simple/v1')
 
-  const fromEmail = process.env['SENDER_EMAIL']
+  const from = process.env['SENDER_EMAIL']
 
 
   const subscriber = event.data.Subscriber.node
@@ -22,16 +22,16 @@ module.exports = function(event) {
     // create welcome email for new subscriber
     const mutation = `
       mutation welcomeEmail(
-        $fromEmail: String!
-        $toEmail: String!
+        $from: String!
+        $to: String!
         $subject: String!
-        $content: String!
+        $text: String!
       ) {
-        createSendgridEmail(
-          fromEmail: $fromEmail
-          toEmail: $toEmail
+        createMailgunEmail(
+          from: $from
+          to: $to
           subject: $subject
-          content: $content
+          text: $text
         ) {
           id
         }
@@ -39,10 +39,10 @@ module.exports = function(event) {
     `
 
     const variables = {
-      fromEmail: fromEmail,
-      toEmail: subscriber.email,
+      from: from,
+      to: subscriber.email,
       subject: `Welcome to the newsletter, ${subscriber.firstName}!`,
-      content: `Hey ${subscriber.firstName}, thanks for subscribing to the newsletter! We will send you awesome emails regularly.`,
+      text: `Hey ${subscriber.firstName}, thanks for subscribing to the newsletter! We will send you awesome emails regularly.`,
     }
 
     return api.request(mutation, variables)
