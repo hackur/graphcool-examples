@@ -1,0 +1,18 @@
+{
+  "data": {},
+  "context": {
+    "request": {
+      "sourceIp": "41.25.64.192",
+      "headers": {},
+      "httpMethod": "post"
+    },
+    "auth": null,
+    "sessionCache": {},
+    "environment": {},
+    "graphcool": {
+      "projectId": "cj7kmspor01xo0114bo1xogpw",
+      "alias": null,
+      "pat": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjEmMDU0MDY0ODUsImNsaWVudElkIjoiY2lscGV2ZnUxMDAwYjBwbDh4bWRtejVkZCIsInByb2plY3RJZCI6ImNqN2ttc3BvcjAxeG8wMTE0Ym8xeG9ncHciLCJwZXJtYW5lbnRBdXRoVG9rZW5JZCI6ImNqN2tvNWlhbjAwYjcwMTd4Ym05N3l2MzcifQ.kYPfCYW02_n7MAgJ8Jc51BtMXwIQ8Tlzvft0AtcY_vU"
+    }
+  }
+}

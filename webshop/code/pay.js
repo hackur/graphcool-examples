@@ -20,6 +20,12 @@ const handler = (cb) => {
 module.exports = handler(event => {
   const client = fromEvent(event)
   const api = client.api('simple/v1')
+  //
+  // const userId = event.data.User.node.id
+  // const email = event.data.User.node.email
+  // const firstName = event.data.User.node.firstName
+  // const lastName = event.data.User.node.lastName
+  // const stripeToken = event.data.User.node.stripeToken
 
   const getOrder = (orderId) => {
     return api.request(`query getOrder($orderId: ID!) {

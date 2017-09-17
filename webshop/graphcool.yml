@@ -1,21 +1,4 @@
-# Welcome to Graphcool!
-#
-# This file is the main config file for your Graphcool Project.
-# It's very minimal at this point and uses default values.
-# We've included a hello world function here.
-# Just uncomment it an run `graphcool deploy`
-#
-# For full config options, check the docs:
-#    graph.cool/docs
-#
-# Happy Coding!
-
-
-# GraphQL types
 types: ./types.graphql
-
-
-# uncomment this:
 
 functions:
   pay:
@@ -27,21 +10,65 @@ functions:
     type: resolver
     schema: ./code/pay.graphql
 
- 
-# Graphcool modules
-modules: {}
+modules:
+  email-password: modules/email-password/graphcool.yml
 
-
-# Model/Relation permissions
 permissions:
-  - operation: "*"
-  - operation: "Baskets.*"
-  - operation: "Orders.*"
-  - operation: "BasketOnItem.*"
-  - operation: "BasketOnOrder.*"
+# Basket permissions
+  - operation: Basket.create
+    authenticated: true
+  - operation: Basket.read
+    authenticated: true
+    query: permissions/Basket.graphql
+  - operation: Basket.update
+    authenticated: true
+    query: permissions/Basket.graphql
+  - operation: Basket.delete
+    authenticated: true
+    query: permissions/Basket.graphql
 
-  
-# Permanent Auth Token / Root Tokens
+# Item permissions
+  - operation: Item.read
+  - operation: Item.create
+    authenticated: true
+    query: permissions/Item.graphql
+  - operation: Item.update
+    authenticated: true
+    query: permissions/Item.graphql
+  - operation: Item.delete
+    authenticated: true
+    query: permissions/Item.graphql
+
+# Order permissions
+  - operation: Order.read
+    authenticated: true
+    query: permissions/Order.read.graphql
+  - operation: Order.create
+    authenticated: true
+    query: permissions/Order.create.graphql
+  - operation: Order.update
+    authenticated: true
+    query: permissions/Order.update-delete.graphql
+  - operation: Order.delete
+    authenticated: true
+    query: permissions/Order.update-delete.graphql
+
+# User permissions
+  - operation: User.read
+    authenticated: true
+  - operation: User.create
+  - operation: User.update
+    authenticated: true
+    query: permissions/User.update-delete.graphql
+  - operation: User.delete
+    authenticated: true
+    query: permissions/User.update-delete.graphql
+
+# Relation Permissions
+  - operation: BasketOnItem.*
+  - operation: BasketOnOrder.*
+  - operation: Baskets.*
+  - operation: Orders.*
+
 rootTokens:
   - defaultToken
-

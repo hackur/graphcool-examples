@@ -12,7 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "graphcool-lib": "^0.0.3",
-    "stripe": "^5.0.0"
+    "stripe": "^5.0.0",
+    "validator": "^8.2.0"
   }
 }
