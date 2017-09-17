@@ -5,14 +5,21 @@ Collection of Graphcool example projects 💡
 ## Examples
 - `Graphcool + Github Login = Instagram for Nerds` :neckbeard: in `/cli-demo`
 - `Graphcool + Email/Password Login = Instagram for Everyone` :family: in `/email-password-login-instagram`
-- Stripe + Graphcool = Webshop :iPhone: in `/webshop`
+- `Stripe + Graphcool = Webshop` :iphone: in `/webshop`
+- `mailgun + Graphcool = Newsletter` 💌 in `/newsletter`
 
 ## Getting Started
 
-[![](./thumbnail.png)](https://www.youtube.com/watch?v=gg_SJ8a5xpA)
+**Watch the video to get started:** https://www.youtube.com/watch?v=gg_SJ8a5xpA
+
+[![](./thumb.png)](https://www.youtube.com/watch?v=gg_SJ8a5xpA)
+
+**Install the CLI and initialize an example project**
 
 ```sh
 npm install -g graphcool@beta
+git clone git@github.com:graphcool-examples/graphcool-examples.git
+cd email-password-login-example
 graphcool init
 ```
 
