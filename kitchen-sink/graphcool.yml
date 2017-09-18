@@ -1,0 +1,70 @@
+# GraphQL types
+types: ./types.graphql
+
+
+# Functions
+functions:
+  beforeCreateContact:
+    handler:
+      code:
+        src: ./code/operation-hooks/beforeCreateContact.js
+    type: operationBefore
+    operation: Contact.create
+  afterCreateContact:
+    handler:
+      code:
+        src: ./code/operation-hooks/afterCreateContact.js
+    type: operationAfter
+    operation: Contact.create
+  random:
+    handler:
+      code:
+        src: ./code/resolvers/random.js
+    type: resolver
+    schema: ./code/resolvers/random.graphql
+  hello:
+    handler:
+      code:
+        src: ./code/resolvers/hello.js
+    type: resolver
+    schema: ./code/resolvers/hello.graphql
+  welcomeEmail:
+    handler:
+      code:
+        src: ./code/subscriptions/welcomeEmail.js
+        environment:
+          SENDER_EMAIL: ${env:SENDER_EMAIL}
+    type: subscription
+    query: ./code/subscriptions/welcomeEmail.graphql
+  # replace __WEBHOOK_URL__, for example with a request bin: https://requestb.in
+  # webhook:
+  #   handler:
+  #     webhook:
+  #       url: __WEBHOOK_URL__
+  #   type: subscription
+  #   query: ./code/subscriptions/welcomeEmail.graphql
+
+
+# Included modules
+modules:
+  mailgun: modules/mailgun/graphcool.yml
+
+
+# Model/Relation permissions
+permissions:
+  # allow every operation
+  # - operation: "*"
+
+  # allow every operation on the Contact model
+  # - operation: Contact.*
+
+  # allow all operations on the Contact model separately
+  - operation: Contact.create
+  - operation: Contact.read
+  - operation: Contact.update
+  - operation: Contact.delete
+
+
+# Permanent Auth Token / Root Tokens
+rootTokens:
+  - welcomeEmail
