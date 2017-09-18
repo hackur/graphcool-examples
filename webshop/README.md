@@ -4,6 +4,7 @@
 - Stripe Checkout Flow
 - GraphQL type definitions
 - A custom GraphQL `resolver` function, hosted in Graphcool
+- Permissions with Permission Queries for all Types (`User`, `Cart`, `Order`)
 
 ## Config
 This example needs an environment variable called `STRIPE_KEY`.
