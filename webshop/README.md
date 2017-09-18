@@ -1,6 +1,7 @@
 # Graphcool Webshop :moneybag:
 
 ## What it includes
+- Anonymous + Email Authentication
 - Stripe Checkout Flow
 - GraphQL type definitions
 - A custom GraphQL `resolver` function, hosted in Graphcool
@@ -48,8 +49,12 @@ mutation init {
 ```
 
 ## Application Flow
- 1. Obtain a Stripe token by using the **Try Now** example in their docs: https://stripe.com/docs
- 2. Create a new Order in Graphcool with the Stripe Token, the `userId` and `basketId` you just created:
+ 1. User is logged in or creates anonymous Account
+ 2. User creates a `Cart` that he puts `Item`s into
+ 3. When the User wants to Checkout, he insert his credit cart and address. We can use the stripe docs to mimic this step:
+    Obtain a Stripe token by using the **Try Now** example in their docs: https://stripe.com/docs
+ 4. With the inserted Data we're also updating the `User` we created in the beginning, adding the name and address of the person
+ 5. Create a new Order in Graphcool with the Stripe Token, the `userId` and `basketId` you just created:
  ```graphql
 
 mutation order {
