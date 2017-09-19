@@ -8,6 +8,8 @@ Collection of Graphcool example projects 💡
 - `Stripe + Graphcool = Webshop` :iphone: in `/webshop`
 - `mailgun + Graphcool = Newsletter` 💌 in `/newsletter`
 
+> Note: This example uses the latest beta version of the CLI! For more information on the CLI Beta, read [the feedback thread in the forum](https://www.graph.cool/forum/t/feedback-new-cli-beta/949).
+
 ## Getting Started
 
 **Watch the video to get started:** https://www.youtube.com/watch?v=gg_SJ8a5xpA
