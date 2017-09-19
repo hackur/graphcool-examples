@@ -6,7 +6,7 @@ Provided is a final version of the Graphcool project, including detailed step-by
 
 # Overview
 
-You can also watch [the introduction video first](https://www.youtube.com/watch?v=gg_SJ8a5xpA) or **[watch complementary walkthrough video](https://www.youtube.com/watch?v=gg_SJ8a5xpA)** 
+You can also watch [the introduction video first](https://www.youtube.com/watch?v=gg_SJ8a5xpA) or **[watch complementary walkthrough video](https://www.youtube.com/watch?v=gg_SJ8a5xpA)**
 
 [![](./thumb.png)](https://www.youtube.com/watch?v=gg_SJ8a5xpA)
 
@@ -58,8 +58,6 @@ graphcool init # choose blank project when prompted
 ```graphql
 type Post {
   id: ID! @isUnique
-  createdAt: DateTime!
-  updatedAt: DateTime!
   description: String!
   imageUrl: String!
 }
@@ -123,9 +121,7 @@ modules:
 # in modules/github/types.graphql
 type GithubUser {
   id: ID! @isUnique
-  createdAt: DateTime!
   githubUserId: String @isUnique
-  updatedAt: DateTime!
   posts: [Post!]! @relation(name: "AuthorPosts")
 }
 ```
@@ -134,8 +130,6 @@ type GithubUser {
 # in types.graphql
 type Post {
   id: ID! @isUnique
-  createdAt: DateTime!
-  updatedAt: DateTime!
   description: String!
   imageUrl: String!
   author: GithubUser @relation(name: "AuthorPosts")
@@ -226,8 +220,6 @@ type Post {
 
 type Like {
   id: ID! @isUnique
-  createdAt: DateTime!
-  updatedAt: DateTime!
   post: Post @relation(name: "LikeOnPost")
   likedBy: GithubUser @relation(name: "LikeOnGithubUser")
 }

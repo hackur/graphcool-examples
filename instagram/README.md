@@ -12,7 +12,6 @@ The app is based on the following data model:
 type Post {
   id: ID! @isUnique
   createdAt: DateTime!
-  updatedAt: DateTime!
   description: String!
   imageUrl: String!
   author: EmailUser @relation(name: "UsersPosts")
@@ -20,8 +19,6 @@ type Post {
 
 type EmailUser implements Node {
   id: ID! @isUnique
-  createdAt: DateTime!
-  updatedAt: DateTime!
   email: String @isUnique
   password: String
   name: String
