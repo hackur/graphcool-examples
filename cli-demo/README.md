@@ -242,12 +242,12 @@ functions:
   like:
     handler:
       code:
-        src: ./code/like.js
+        src: ./src/like.js
     type: subscription
-    query: ./schemas/like.graphql
+    query: ./src/like.graphql
 ```
 
-- copy the code from `code/like.js` and `code/like.graphql` in this repository in your own project
+- copy the code from `src/like.js` and `src/like.graphql` in this repository in your own project
 
 - deploy the changes
 

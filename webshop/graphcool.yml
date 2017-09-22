@@ -4,11 +4,11 @@ functions:
   pay:
     handler:
       code:
-        src: ./code/pay.js
+        src: ./src/pay.js
         environment:
           STRIPE_KEY: ${env:STRIPE_KEY}
     type: resolver
-    schema: ./code/pay.graphql
+    schema: ./src/pay.graphql
 
 modules:
   email-password: modules/email-password/graphcool.yml

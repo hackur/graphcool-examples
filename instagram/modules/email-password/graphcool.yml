@@ -6,21 +6,17 @@ functions:
   signup:
     handler:
       code:
-        src: ./code/signup.js
+        src: ./src/signup.js
     type: resolver
-    schema: ./schemas/signup.graphql
+    schema: ./src/signup.graphql
   authenticate:
     handler:
       code:
-        src: ./code/authenticate.js
+        src: ./src/authenticate.js
     type: resolver
-    schema: ./schemas/authenticate.graphql
-
-permissions:
-  - operation: EmailUser.read
-  - operation: EmailUser.create
-  - operation: EmailUser.update
-  - operation: EmailUser.delete
+    schema: ./src/authenticate.graphql
 
 # Permanent Auth Token / Root Tokens
-rootTokens: []
+rootTokens:
+  - signup
+  - authenticate

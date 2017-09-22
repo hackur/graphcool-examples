@@ -5,11 +5,11 @@ functions:
   welcomeEmail:
     handler:
       code:
-        src: ./code/welcomeEmail.js
+        src: ./src/welcomeEmail.js
         environment:
           SENDER_EMAIL: ${env:SENDER_EMAIL}
     type: subscription
-    query: ./code/welcomeEmail.graphql
+    query: ./src/welcomeEmail.graphql
 
 
 # Graphcool modules

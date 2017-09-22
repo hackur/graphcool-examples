@@ -7,42 +7,42 @@ functions:
   beforeCreateContact:
     handler:
       code:
-        src: ./code/operation-hooks/beforeCreateContact.js
+        src: ./src/operation-hooks/beforeCreateContact.js
     type: operationBefore
     operation: Contact.create
   afterCreateContact:
     handler:
       code:
-        src: ./code/operation-hooks/afterCreateContact.js
+        src: ./src/operation-hooks/afterCreateContact.js
     type: operationAfter
     operation: Contact.create
   random:
     handler:
       code:
-        src: ./code/resolvers/random.js
+        src: ./src/resolvers/random.js
     type: resolver
-    schema: ./code/resolvers/random.graphql
+    schema: ./src/resolvers/random.graphql
   hello:
     handler:
       code:
-        src: ./code/resolvers/hello.js
+        src: ./src/resolvers/hello.js
     type: resolver
-    schema: ./code/resolvers/hello.graphql
+    schema: ./src/resolvers/hello.graphql
   welcomeEmail:
     handler:
       code:
-        src: ./code/subscriptions/welcomeEmail.js
+        src: ./src/subscriptions/welcomeEmail.js
         environment:
           SENDER_EMAIL: ${env:SENDER_EMAIL}
     type: subscription
-    query: ./code/subscriptions/welcomeEmail.graphql
+    query: ./src/subscriptions/welcomeEmail.graphql
   # replace __WEBHOOK_URL__, for example with a request bin: https://requestb.in
   # webhook:
   #   handler:
   #     webhook:
   #       url: __WEBHOOK_URL__
   #   type: subscription
-  #   query: ./code/subscriptions/welcomeEmail.graphql
+  #   query: ./src/subscriptions/welcomeEmail.graphql
 
 
 # Included modules

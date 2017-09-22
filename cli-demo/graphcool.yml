@@ -6,9 +6,9 @@ functions:
   like:
     handler:
       code:
-        src: ./code/like.js
+        src: ./src/like.js
     type: subscription
-    query: ./schemas/like.graphql
+    query: ./src/like.graphql
 
 # modules
 modules:
