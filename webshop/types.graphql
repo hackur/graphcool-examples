@@ -1,7 +1,5 @@
 type User implements Node {
   id: ID! @isUnique
-  createdAt: DateTime!
-  updatedAt: DateTime!
   email: String @isUnique
   firstName: String
   lastName: String
@@ -16,8 +14,6 @@ type User implements Node {
 
 type Basket {
   id: ID! @isUnique
-  createdAt: DateTime!
-  updatedAt: DateTime!
   user: User @relation(name: "Baskets")
   items: [Item!]! @relation(name: "BasketOnItem")
   order: Order @relation(name: "BasketOnOrder")
@@ -25,8 +21,6 @@ type Basket {
 
 type Order {
   id: ID! @isUnique
-  createdAt: DateTime!
-  updatedAt: DateTime!
   deliveryDate: DateTime
   paymentDate: DateTime
   stripeToken: String
@@ -36,8 +30,6 @@ type Order {
 
 type Item {
   id: ID! @isUnique
-  createdAt: DateTime!
-  updatedAt: DateTime!
   baskets: [Basket!]! @relation(name: "BasketOnItem")
   name: String!
   description: String

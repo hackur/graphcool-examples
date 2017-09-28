@@ -13,7 +13,6 @@ module.exports = function(event) {
 
   const from = process.env['SENDER_EMAIL']
 
-
   const subscriber = event.data.Subscriber.node
 
   if (subscriber) {
@@ -23,24 +22,25 @@ module.exports = function(event) {
     const mutation = `
       mutation welcomeEmail(
         $from: String!
-        $to: String!
+        $to: [String!]!
         $subject: String!
         $text: String!
       ) {
-        createMailgunEmail(
+        sendMailgunEmail(
+          tag: "welcome-email"
           from: $from
           to: $to
           subject: $subject
           text: $text
         ) {
-          id
+          success
         }
       }
     `
 
     const variables = {
       from: from,
-      to: subscriber.email,
+      to: [subscriber.email],
       subject: `Welcome to the newsletter, ${subscriber.firstName}!`,
       text: `Hey ${subscriber.firstName}, thanks for subscribing to the newsletter! We will send you awesome emails regularly.`,
     }

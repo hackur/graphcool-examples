@@ -4,9 +4,11 @@ Collection of Graphcool example projects 💡
 
 ## Examples
 - `Graphcool + Github Login = Instagram for Nerds` :neckbeard: in `/cli-demo`
-- `Graphcool + Email/Password Login = Instagram for Everyone` :family: in `/email-password-login-instagram`
+- `Graphcool + Email/Password Login = Instagram for Everyone` :family: in `/instagram`
 - `Stripe + Graphcool = Webshop` :iphone: in `/webshop`
 - `mailgun + Graphcool = Newsletter` 💌 in `/newsletter`
+
+> Note: This example uses the latest beta version of the CLI! For more information on the CLI Beta, read [the feedback thread in the forum](https://www.graph.cool/forum/t/feedback-new-cli-beta/949).
 
 ## Getting Started
 

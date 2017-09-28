@@ -1,8 +1,6 @@
 type GithubUser {
   id: ID! @isUnique
-  createdAt: DateTime!
   githubUserId: String @isUnique
-  updatedAt: DateTime!
   posts: [Post!]! @relation(name: "AuthorPosts")
   likes: [Like!]! @relation(name: "LikeOnGithubUser")
 }
