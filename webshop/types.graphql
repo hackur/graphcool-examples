@@ -11,6 +11,7 @@ type User implements Node {
   baskets: [Basket!]! @relation(name: "Baskets")
   orders: [Order!]! @relation(name: "Orders")
   password: String
+  role: Role @defaultValue(value: "USER")
 }
 
 type Basket {
@@ -42,4 +43,9 @@ type Item {
   description: String
   imageUrl: String
   price: Int!
+}
+
+enum Role {
+  ADMIN
+  USER
 }

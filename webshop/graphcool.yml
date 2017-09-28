@@ -6,7 +6,7 @@ functions:
       code:
         src: ./code/pay.js
         environment:
-          STRIPE_KEY: ${env:STRIPE_KEY}
+          STRIPE_KEY: sk_test_4pxnogVkaRiNeWe5U5P838Zf
     type: resolver
     schema: ./code/pay.graphql
 
